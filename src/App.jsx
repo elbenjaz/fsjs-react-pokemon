@@ -18,13 +18,19 @@ const App = () => {
     const filterAndOrder = () => {
         //filter
         let filtered = pokemonList.filter(pokemon => {
-            const matchByID    = Number(filter.text) ? pokemon.id === Number(filter.text) : true;
-            const matchByType  = filter.type ? pokemon.types.includes(filter.type) : true;
             const matchByColor = filter.color ? pokemon.color === filter.color : true;
+            const matchByType  = filter.type ? pokemon.types.includes(filter.type) : true;
+            const matchByText  = () => {
+                if (Number(filter.text)) {
+                    return pokemon.id === Number(filter.text);
+                }
 
-            const matchByText = (text) => text.toString().toLowerCase().startsWith(filter.text.trim().toLowerCase());
+                const startsWith = (text) => text.toString().toLowerCase().startsWith(filter.text.trim().toLowerCase());
 
-            return matchByID && matchByType && matchByColor && (matchByText(pokemon.name) || matchByText(pokemon.color));
+                return startsWith(pokemon.name);
+            };
+
+            return matchByColor && matchByType && matchByText();
         });
 
         //order

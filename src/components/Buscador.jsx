@@ -7,7 +7,10 @@ const Buscador = ({ filter, setFilter }) => {
     const [text, setText] = useState(filter.text);
     
     const onFilterChange = (e) => {
-        setFilter({ ...filter, [e.target.name] : e.target.value });
+        setFilter({ ...filter, ...{
+            [e.target.name] : e.target.value,
+            "text"          : text
+        }});
     };
     
     const onInput = (e) => {
