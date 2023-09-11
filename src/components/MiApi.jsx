@@ -9,21 +9,21 @@ const MiApi = ({ setPokemon, pokemonList, pokemonListFiltered }) => {
         const url = "";
         const max_pokemon = 251;
 
-        axios.get(url)
-            .then((response) => {
-                setPokemon(response.data.pokemon.slice(0, max_pokemon));
-            })
-            .catch((error) => {
-                console.error("Error trying to get remote data:", error);
+        //axios.get(url)
+        //    .then((response) => {
+        //        setPokemon(response.data.pokemon.slice(0, max_pokemon));
+        //    })
+        //    .catch((error) => {
+        //        console.error("Error trying to get remote data:", error);
 
                 import('../data/pokemon.json').then((data) => {
                     setPokemon(data.pokemon.slice(0, max_pokemon));
                 }).catch((error) => {
                     console.error("Error trying to get local data", error);
                 });
-            }).finally(() => {
+        //    }).finally(() => {
                 setLoading(false);
-            });
+        //    });
     };
 
     useEffect(() => {
