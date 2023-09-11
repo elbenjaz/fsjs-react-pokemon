@@ -6,8 +6,8 @@ const MiApi = ({ setPokemon, pokemonList, pokemonListFiltered }) => {
     const [loading, setLoading] = useState(true);
 
     const GottaCatchEmAll = () => {
-        const url = "https://dev.mediadraft.cl/labs/pokemon/";
-        const max_pokemon = 151;
+        const url = "";
+        const max_pokemon = 251;
 
         axios.get(url)
             .then((response) => {
