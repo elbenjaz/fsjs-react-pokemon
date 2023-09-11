@@ -7,7 +7,7 @@ const MiApi = ({ setPokemon, pokemonList, pokemonListFiltered }) => {
 
     const GottaCatchEmAll = () => {
         const url = "";
-        const max_pokemon = 251;
+        const max_pokemon = 151;
 
         //axios.get(url)
         //    .then((response) => {
